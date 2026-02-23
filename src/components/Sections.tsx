@@ -62,78 +62,97 @@ export const Hero = () => (
 );
 
 export const PainPoints = () => (
-  <section className="py-32 bg-slate-50 relative overflow-hidden">
-    <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-[#002B49] to-transparent opacity-5"></div>
+  <section className="py-24 md:py-32 bg-[#0B1120] relative overflow-hidden">
+    <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#FF6B00]/10 rounded-full blur-[120px]"></div>
+    
     <div className="container mx-auto px-4 relative z-10">
-      <div className="max-w-4xl mx-auto text-center mb-20">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#002B49] mb-6">
-          Você sente que estuda muito, mas sem direção?
+      <div className="max-w-4xl mx-auto text-center mb-16 md:mb-20">
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          Estudar errado <span className="text-[#FF6B00]">custa a sua aprovação</span>.
         </h2>
-        <p className="text-xl text-gray-600 leading-relaxed">
-          O excesso de conteúdo desordenado é o maior inimigo da sua aprovação. Estudar por conta própria gera insegurança e a sensação de estar sempre "atrás". Na <span className="font-bold text-[#FF6B00]">FOX IMAGEM</span>, o estudo é um processo estruturado.
+        <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
+          Você sente que estuda horas e não sai do lugar? O excesso de conteúdo desorganizado gera ansiedade e insegurança. 
+          <br className="hidden md:block" />
+          Na <span className="font-bold text-white">FOX IMAGEM</span>, transformamos confusão em clareza estratégica.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-12">
         {[
-          { title: "Medo da Reprovação", desc: "A insegurança de não saber se está focando no que realmente importa.", color: "bg-red-50 text-red-600 border-red-100" },
-          { title: "Falta de Estratégia", desc: "Perder tempo organizando materiais ao invés de absorver conhecimento.", color: "bg-orange-50 text-orange-600 border-orange-100" },
-          { title: "Conteúdo Disperso", desc: "Informações soltas que não constroem um raciocínio clínico sólido.", color: "bg-blue-50 text-blue-600 border-blue-100" }
+          { title: "Medo da Reprovação", desc: "A sensação constante de que, não importa o quanto estude, nunca será o suficiente.", icon: AlertCircle },
+          { title: "Falta de Estratégia", desc: "Perder tempo precioso organizando resumos ao invés de dominar o que realmente cai na prova.", icon: Clock },
+          { title: "Conteúdo Disperso", desc: "Informações soltas e contraditórias que impedem a construção de um raciocínio clínico sólido.", icon: FileText }
         ].map((item, idx) => (
-          <div key={idx} className={`p-10 rounded-3xl shadow-lg border ${item.color.split(' ')[2]} bg-white hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group`}>
-            <div className={`w-16 h-16 ${item.color.split(' ')[0]} rounded-2xl flex items-center justify-center mb-8 ${item.color.split(' ')[1]} group-hover:scale-110 transition-transform`}>
-              <AlertCircle size={32} />
+          <div key={idx} className="p-8 md:p-10 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 hover:-translate-y-2 group">
+            <div className="w-14 h-14 md:w-16 md:h-16 bg-[#FF6B00]/10 rounded-2xl flex items-center justify-center mb-6 md:mb-8 text-[#FF6B00] group-hover:bg-[#FF6B00] group-hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(255,107,0,0.1)] group-hover:shadow-[0_0_30px_rgba(255,107,0,0.4)]">
+              <item.icon size={32} />
             </div>
-            <h3 className="text-2xl font-bold text-[#002B49] mb-4">{item.title}</h3>
-            <p className="text-gray-600 leading-relaxed text-lg">{item.desc}</p>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">{item.title}</h3>
+            <p className="text-gray-400 leading-relaxed text-base md:text-lg">{item.desc}</p>
           </div>
         ))}
+      </div>
+
+      <div className="text-center">
+        <a href="#matricula" className="inline-flex items-center gap-2 text-[#FF6B00] font-bold hover:text-white transition-colors border-b-2 border-[#FF6B00] pb-1 hover:border-white">
+          QUERO ACABAR COM ESSA INSEGURANÇA <ArrowRight size={20} />
+        </a>
       </div>
     </div>
   </section>
 );
 
 export const Solution = () => (
-  <section className="py-32 bg-white relative">
+  <section className="py-24 md:py-32 bg-[#002B49] relative border-t border-white/5">
     <div className="container mx-auto px-4">
-      <div className="text-center mb-20">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#002B49] mb-6">
-          Um Ecossistema Completo de Preparação
+      <div className="text-center mb-16 md:mb-20">
+        <div className="inline-block bg-[#FF6B00]/10 text-[#FF6B00] px-4 py-1.5 rounded-full text-sm font-bold mb-6 tracking-wide border border-[#FF6B00]/20">
+          MÉTODO EXCLUSIVO
+        </div>
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+          O Arsenal Completo da Aprovação
         </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Mais de 100 horas de conteúdo estruturado para sua aprovação. Tudo o que você precisa em um só lugar.
+        <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+          Não é apenas um curso. É um ecossistema de alta performance desenhado para colocar você dentro da residência.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
         {[
-          { icon: Video, title: "Aulas Ao Vivo e Gravadas", desc: "Terças às 19:30. Acesso total às gravações até 31/01/2027.", color: "bg-blue-600" },
-          { icon: Award, title: "4 Simulados Oficiais", desc: "Treine com ranking e meça seu desempenho real.", color: "bg-[#FF6B00]" },
-          { icon: BookOpen, title: "Material de Apoio", desc: "E-books, flashcards, cadernos de questões e slides.", color: "bg-emerald-500" },
-          { icon: Users, title: "Suporte no WhatsApp", desc: "Acompanhamento direto durante todo o curso.", color: "bg-purple-500" }
+          { icon: Video, title: "Aulas Ao Vivo e Gravadas", desc: "Terças às 19:30. Acesso total às gravações até 31/01/2027 para rever quantas vezes precisar.", color: "text-blue-400" },
+          { icon: Award, title: "4 Simulados Oficiais", desc: "Treine com ranking e meça seu desempenho real antes da prova oficial.", color: "text-[#FF6B00]" },
+          { icon: BookOpen, title: "Material de Apoio", desc: "E-books, flashcards (Anki), cadernos de questões e slides completos.", color: "text-emerald-400" },
+          { icon: Users, title: "Mentoria e Suporte", desc: "Acompanhamento direto no WhatsApp. Você nunca estará estudando sozinho.", color: "text-purple-400" }
         ].map((feature, idx) => (
-          <div key={idx} className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-[#FF6B00]/30 transition-all duration-300 group hover:bg-white hover:shadow-xl">
-            <div className={`w-16 h-16 ${feature.color} text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg transform group-hover:rotate-3 transition-transform`}>
+          <div key={idx} className="bg-[#001E33] p-8 rounded-3xl border border-white/5 hover:border-[#FF6B00]/30 transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1">
+            <div className={`w-14 h-14 md:w-16 md:h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:bg-[#FF6B00] group-hover:text-white transition-all duration-300 ${feature.color}`}>
               <feature.icon size={32} />
             </div>
-            <h3 className="text-xl font-bold text-[#002B49] mb-3">{feature.title}</h3>
-            <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
+            <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+            <p className="text-gray-400 leading-relaxed text-sm md:text-base">{feature.desc}</p>
           </div>
         ))}
       </div>
 
-      <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
+      <div className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
         {[
           { label: "Carga Horária", value: "+100h" },
           { label: "Módulos", value: "28" },
           { label: "Simulados", value: "4" },
           { label: "Acesso até", value: "Jan/27" },
         ].map((stat, idx) => (
-          <div key={idx} className="p-4 md:p-8 bg-[#002B49] rounded-2xl md:rounded-3xl border border-[#002B49]/10 text-white shadow-xl transform hover:scale-105 transition-transform">
+          <div key={idx} className="p-6 md:p-8 bg-white/5 backdrop-blur-md rounded-2xl md:rounded-3xl border border-white/10 text-white hover:bg-white/10 transition-colors">
             <div className="text-3xl md:text-5xl font-extrabold text-[#FF6B00] mb-1 md:mb-2">{stat.value}</div>
-            <div className="text-xs md:text-sm text-gray-300 font-bold uppercase tracking-wider">{stat.label}</div>
+            <div className="text-xs md:text-sm text-gray-400 font-bold uppercase tracking-wider">{stat.label}</div>
           </div>
         ))}
+      </div>
+      
+      <div className="mt-12 text-center">
+         <a href="#matricula" className="bg-white text-[#002B49] hover:bg-gray-100 font-bold py-4 px-10 rounded-full shadow-lg transition-all transform hover:-translate-y-1 inline-flex items-center gap-3">
+            QUERO ACESSO A TUDO ISSO <ArrowRight size={20} />
+         </a>
       </div>
     </div>
   </section>
@@ -240,50 +259,50 @@ export const Curriculum = () => {
 };
 
 export const Timeline = () => (
-  <section className="py-32 bg-white">
+  <section className="py-24 md:py-32 bg-[#0B1120] relative">
     <div className="container mx-auto px-4 max-w-5xl">
-      <h2 className="text-4xl md:text-5xl font-bold text-[#002B49] text-center mb-20">
-        Sua Jornada
+      <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-16 md:mb-20">
+        Sua Jornada até a <span className="text-[#FF6B00]">Aprovação</span>
       </h2>
 
-      <div className="space-y-12 relative before:content-[''] before:absolute before:left-8 md:before:left-1/2 before:top-4 before:bottom-4 before:w-1 before:bg-gray-100">
+      <div className="space-y-12 relative before:content-[''] before:absolute before:left-8 md:before:left-1/2 before:top-4 before:bottom-4 before:w-0.5 before:bg-white/10">
         {[
-          { date: "Março 2026", title: "Início das Aulas", desc: "Aula inaugural e liberação imediata dos primeiros conteúdos." },
-          { date: "Semanalmente", title: "Encontros Ao Vivo", desc: "Aulas expositivas e interativas todas as terças-feiras, 19:30." },
-          { date: "Constante", title: "Simulados e Ranking", desc: "4 grandes simulados para testar seu nível de preparação." },
-          { date: "Jan 2027", title: "Reta Final", desc: "Encerramento do suporte e acesso à plataforma." }
+          { date: "Março 2026", title: "Início das Aulas", desc: "Aula inaugural e liberação imediata dos primeiros conteúdos fundamentais." },
+          { date: "Semanalmente", title: "Encontros Ao Vivo", desc: "Aulas expositivas e interativas todas as terças-feiras, 19:30. Tire dúvidas em tempo real." },
+          { date: "Constante", title: "Simulados e Ranking", desc: "4 grandes simulados estratégicos para testar seu nível e corrigir rotas." },
+          { date: "Jan 2027", title: "Reta Final", desc: "Revisão intensiva e encerramento do suporte. Você estará pronto." }
         ].map((item, idx) => (
           <div key={idx} className={`flex flex-col md:flex-row gap-6 md:gap-10 items-start md:items-center ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
             <div className="flex-1 w-full md:text-right pl-20 md:pl-0 relative">
               {idx % 2 === 0 && (
                 <>
-                  <div className="hidden md:block">
-                     <h3 className="text-2xl font-bold text-[#002B49]">{item.title}</h3>
-                     <p className="text-gray-600 mt-2 text-lg">{item.desc}</p>
+                  <div className="hidden md:block group hover:-translate-x-2 transition-transform duration-300">
+                     <h3 className="text-2xl font-bold text-white group-hover:text-[#FF6B00] transition-colors">{item.title}</h3>
+                     <p className="text-gray-400 mt-2 text-lg">{item.desc}</p>
                   </div>
                   <div className="md:hidden">
-                     <span className="inline-block bg-[#002B49]/5 text-[#002B49] px-4 py-1 rounded-full text-sm font-bold border border-[#002B49]/10 mb-2">{item.date}</span>
-                     <h3 className="text-2xl font-bold text-[#002B49]">{item.title}</h3>
-                     <p className="text-gray-600 mt-2 text-lg">{item.desc}</p>
+                     <span className="inline-block bg-[#FF6B00]/10 text-[#FF6B00] px-4 py-1 rounded-full text-sm font-bold border border-[#FF6B00]/20 mb-2">{item.date}</span>
+                     <h3 className="text-2xl font-bold text-white">{item.title}</h3>
+                     <p className="text-gray-400 mt-2 text-lg">{item.desc}</p>
                   </div>
                 </>
               )}
             </div>
             
-            <div className="absolute left-8 md:left-1/2 w-6 h-6 bg-[#FF6B00] rounded-full transform -translate-x-1/2 border-4 border-white shadow-lg z-10 mt-1 md:mt-0"></div>
+            <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-[#FF6B00] rounded-full transform -translate-x-1/2 border-4 border-[#0B1120] shadow-[0_0_15px_rgba(255,107,0,0.5)] z-10 mt-1 md:mt-0"></div>
             
             <div className="flex-1 w-full pl-20 md:pl-0">
               {idx % 2 !== 0 ? (
-                <div>
+                <div className="group hover:translate-x-2 transition-transform duration-300">
                    <div className="md:hidden mb-2">
-                     <span className="inline-block bg-[#002B49]/5 text-[#002B49] px-4 py-1 rounded-full text-sm font-bold border border-[#002B49]/10">{item.date}</span>
+                     <span className="inline-block bg-[#FF6B00]/10 text-[#FF6B00] px-4 py-1 rounded-full text-sm font-bold border border-[#FF6B00]/20">{item.date}</span>
                    </div>
-                   <h3 className="text-2xl font-bold text-[#002B49]">{item.title}</h3>
-                   <p className="text-gray-600 mt-2 text-lg">{item.desc}</p>
+                   <h3 className="text-2xl font-bold text-white group-hover:text-[#FF6B00] transition-colors">{item.title}</h3>
+                   <p className="text-gray-400 mt-2 text-lg">{item.desc}</p>
                 </div>
               ) : (
                 <div className="md:text-right hidden md:block">
-                   <span className="inline-block bg-[#002B49]/5 text-[#002B49] px-6 py-2 rounded-full text-base font-bold border border-[#002B49]/10">{item.date}</span>
+                   <span className="inline-block bg-[#FF6B00]/10 text-[#FF6B00] px-6 py-2 rounded-full text-base font-bold border border-[#FF6B00]/20 hover:bg-[#FF6B00]/20 transition-colors">{item.date}</span>
                 </div>
               )}
             </div>
@@ -299,51 +318,46 @@ interface InvestmentProps {
 }
 
 export const Investment = ({ onOpenCheckout }: InvestmentProps) => (
-  <section id="matricula" className="py-32 bg-slate-50">
-    <div className="container mx-auto px-4">
-      <div className="max-w-5xl mx-auto bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-gray-100 flex flex-col md:flex-row transform hover:scale-[1.01] transition-transform duration-500">
+  <section id="matricula" className="py-24 md:py-32 bg-[#002B49] relative overflow-hidden">
+    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+    <div className="container mx-auto px-4 relative z-10">
+      <div className="max-w-5xl mx-auto bg-[#001E33] rounded-[2.5rem] shadow-2xl overflow-hidden border border-white/10 flex flex-col md:flex-row transform hover:scale-[1.01] transition-transform duration-500 group">
         
-        <div className="bg-[#002B49] p-12 text-white md:w-2/5 flex flex-col justify-between relative overflow-hidden">
+        <div className="bg-[#0B1120] p-10 md:p-12 text-white md:w-2/5 flex flex-col justify-between relative overflow-hidden">
           <div className="relative z-10">
-            <h3 className="text-3xl font-bold mb-6">Turma 2026</h3>
-            <p className="text-gray-300 mb-10 text-lg">Garanta sua preparação completa com quem mais aprova.</p>
+            <h3 className="text-3xl font-bold mb-6 text-white">Turma 2026</h3>
+            <p className="text-gray-400 mb-10 text-lg">Garanta sua preparação completa com quem mais aprova no Brasil.</p>
             <ul className="space-y-6 text-base text-gray-300">
               <li className="flex items-center gap-4"><div className="bg-[#FF6B00]/20 p-2 rounded-full"><CheckCircle2 size={20} className="text-[#FF6B00]" /></div> Acesso até Jan/2027</li>
               <li className="flex items-center gap-4"><div className="bg-[#FF6B00]/20 p-2 rounded-full"><CheckCircle2 size={20} className="text-[#FF6B00]" /></div> +100h de Conteúdo</li>
               <li className="flex items-center gap-4"><div className="bg-[#FF6B00]/20 p-2 rounded-full"><CheckCircle2 size={20} className="text-[#FF6B00]" /></div> Certificado Incluso</li>
+              <li className="flex items-center gap-4"><div className="bg-[#FF6B00]/20 p-2 rounded-full"><CheckCircle2 size={20} className="text-[#FF6B00]" /></div> Suporte VIP</li>
             </ul>
           </div>
-          <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-[#FF6B00] rounded-full blur-[100px] opacity-30"></div>
-          <div className="absolute top-0 left-0 w-full h-full opacity-10 mix-blend-overlay">
-            <img 
-              src="https://automacao-piwigo.w3lidv.easypanel.host/upload/2026/02/20/20260220133104-a45343c5.webp" 
-              alt="Fox Background" 
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-[#FF6B00] rounded-full blur-[100px] opacity-20"></div>
         </div>
         
-        <div className="p-12 md:w-3/5 flex flex-col justify-center bg-white relative">
+        <div className="p-10 md:p-12 md:w-3/5 flex flex-col justify-center bg-[#001E33] relative border-l border-white/5">
           <div className="text-center md:text-left mb-10">
-            <div className="inline-block bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-sm font-bold mb-6 tracking-wide">
+            <div className="inline-block bg-[#FF6B00] text-white px-4 py-1.5 rounded-full text-sm font-bold mb-6 tracking-wide shadow-lg shadow-[#FF6B00]/20 animate-pulse">
               OFERTA DE LANÇAMENTO
             </div>
             <div className="flex items-baseline gap-4 justify-center md:justify-start flex-wrap">
-              <span className="text-gray-400 line-through text-xl">R$ 2.599,00</span>
-              <span className="text-5xl md:text-6xl font-extrabold text-[#002B49]">R$ 2.499,00</span>
+              <span className="text-gray-500 line-through text-xl">R$ 2.599,00</span>
+              <span className="text-5xl md:text-6xl font-extrabold text-white">R$ 2.499,00</span>
             </div>
-            <p className="text-gray-500 mt-3 text-lg">à vista ou em até <strong className="text-[#002B49]">12x de R$ 208,25</strong></p>
+            <p className="text-gray-400 mt-3 text-lg">à vista ou em até <strong className="text-white">12x de R$ 208,25</strong></p>
           </div>
 
           <button 
             onClick={onOpenCheckout}
-            className="w-full bg-[#FF6B00] hover:bg-[#e66000] text-white text-xl font-bold py-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-center flex items-center justify-center gap-3 group"
+            className="w-full bg-[#FF6B00] hover:bg-[#e66000] text-white text-xl font-bold py-6 rounded-2xl shadow-[0_10px_30px_rgba(255,107,0,0.3)] hover:shadow-[0_15px_40px_rgba(255,107,0,0.5)] transition-all transform hover:-translate-y-1 text-center flex items-center justify-center gap-3 group border border-[#FF6B00]"
           >
             GARANTIR MINHA VAGA <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
           </button>
           
-          <p className="text-center text-gray-400 text-sm mt-8 flex items-center justify-center gap-2">
-            <ShieldCheck size={18} /> 7 dias de garantia incondicional
+          <p className="text-center text-gray-500 text-sm mt-8 flex items-center justify-center gap-2">
+            <ShieldCheck size={18} className="text-[#FF6B00]" /> 7 dias de garantia incondicional
           </p>
         </div>
       </div>
@@ -352,34 +366,34 @@ export const Investment = ({ onOpenCheckout }: InvestmentProps) => (
 );
 
 export const Faculty = () => (
-  <section className="py-32 bg-white">
+  <section className="py-24 md:py-32 bg-[#0B1120] border-t border-white/5">
     <div className="container mx-auto px-4 text-center">
-      <h2 className="text-4xl md:text-5xl font-bold text-[#002B49] mb-8">
+      <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">
         Coordenação e Corpo Docente
       </h2>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-20">
+      <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-16 md:mb-20">
         Aprenda com mestres e doutores que são referência na área.
       </p>
 
-      <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-        <div className="bg-slate-50 p-10 rounded-[2rem] border border-slate-100 hover:border-[#FF6B00]/30 transition-all hover:shadow-xl group">
-          <div className="w-32 h-32 bg-[#002B49]/5 rounded-full mx-auto mb-8 flex items-center justify-center text-[#002B49] group-hover:bg-[#FF6B00] group-hover:text-white transition-colors">
+      <div className="grid md:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto">
+        <div className="bg-[#001E33] p-10 rounded-[2rem] border border-white/5 hover:border-[#FF6B00]/30 transition-all hover:shadow-2xl hover:-translate-y-2 group">
+          <div className="w-32 h-32 bg-white/5 rounded-full mx-auto mb-8 flex items-center justify-center text-white group-hover:bg-[#FF6B00] transition-colors shadow-inner">
              <Users size={48} />
           </div>
-          <h3 className="text-2xl font-bold text-[#002B49] mb-2">Prof. Dr. Antonio Lacreta Jr.</h3>
+          <h3 className="text-2xl font-bold text-white mb-2">Prof. Dr. Antonio Lacreta Jr.</h3>
           <p className="text-[#FF6B00] font-bold mb-6 uppercase tracking-wide text-sm">UFLA</p>
-          <p className="text-gray-600 text-lg leading-relaxed">
+          <p className="text-gray-400 text-lg leading-relaxed">
             Referência em Ultrassonografia e Radiologia. Coordenador de módulos fundamentais do curso.
           </p>
         </div>
 
-        <div className="bg-slate-50 p-10 rounded-[2rem] border border-slate-100 hover:border-[#FF6B00]/30 transition-all hover:shadow-xl group">
-          <div className="w-32 h-32 bg-[#002B49]/5 rounded-full mx-auto mb-8 flex items-center justify-center text-[#002B49] group-hover:bg-[#FF6B00] group-hover:text-white transition-colors">
+        <div className="bg-[#001E33] p-10 rounded-[2rem] border border-white/5 hover:border-[#FF6B00]/30 transition-all hover:shadow-2xl hover:-translate-y-2 group">
+          <div className="w-32 h-32 bg-white/5 rounded-full mx-auto mb-8 flex items-center justify-center text-white group-hover:bg-[#FF6B00] transition-colors shadow-inner">
              <Users size={48} />
           </div>
-          <h3 className="text-2xl font-bold text-[#002B49] mb-2">Prof. Dra. Tilde Froes</h3>
+          <h3 className="text-2xl font-bold text-white mb-2">Prof. Dra. Tilde Froes</h3>
           <p className="text-[#FF6B00] font-bold mb-6 uppercase tracking-wide text-sm">UFPR</p>
-          <p className="text-gray-600 text-lg leading-relaxed">
+          <p className="text-gray-400 text-lg leading-relaxed">
             Especialista em Radiologia Torácica e Abdominal. Uma das maiores autoridades do país.
           </p>
         </div>
@@ -400,30 +414,30 @@ export const FAQ = () => {
   ];
 
   return (
-    <section className="py-32 bg-slate-50 relative overflow-hidden">
+    <section className="py-24 md:py-32 bg-[#002B49] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#FF6B00]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-12 h-12 bg-[#FF6B00]/10 rounded-full text-[#FF6B00] mb-4">
+          <div className="inline-flex items-center justify-center w-12 h-12 bg-[#FF6B00]/10 rounded-full text-[#FF6B00] mb-4 border border-[#FF6B00]/20">
             <HelpCircle size={24} />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#002B49] mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Dúvidas Frequentes
           </h2>
-          <p className="text-gray-600 text-lg">Tudo o que você precisa saber sobre a sua preparação.</p>
+          <p className="text-gray-400 text-lg">Tudo o que você precisa saber sobre a sua preparação.</p>
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-all duration-300 group">
+            <div key={idx} className="border border-white/5 rounded-2xl overflow-hidden bg-[#001E33] shadow-lg hover:border-[#FF6B00]/30 transition-all duration-300 group">
               <button
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                className="w-full flex items-center justify-between p-6 md:p-8 text-left bg-white hover:bg-gray-50 transition-colors"
+                className="w-full flex items-center justify-between p-6 md:p-8 text-left bg-[#001E33] hover:bg-[#0B1120] transition-colors"
               >
-                <span className={`font-bold text-lg md:text-xl transition-colors ${openIndex === idx ? 'text-[#FF6B00]' : 'text-[#002B49]'}`}>
+                <span className={`font-bold text-lg md:text-xl transition-colors ${openIndex === idx ? 'text-[#FF6B00]' : 'text-white'}`}>
                   {faq.q}
                 </span>
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === idx ? 'bg-[#FF6B00] text-white rotate-180' : 'bg-gray-100 text-gray-400 group-hover:bg-[#FF6B00]/10 group-hover:text-[#FF6B00]'}`}>
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === idx ? 'bg-[#FF6B00] text-white rotate-180' : 'bg-white/5 text-gray-400 group-hover:bg-[#FF6B00]/10 group-hover:text-[#FF6B00]'}`}>
                   <ChevronDown size={20} />
                 </div>
               </button>
@@ -433,9 +447,9 @@ export const FAQ = () => {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    className="px-6 md:px-8 pb-8"
+                    className="px-6 md:px-8 pb-8 bg-[#001E33]"
                   >
-                    <p className="text-gray-600 pt-4 border-t border-gray-100 mt-2 leading-relaxed text-lg">{faq.a}</p>
+                    <p className="text-gray-400 pt-4 border-t border-white/5 mt-2 leading-relaxed text-lg">{faq.a}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

@@ -256,18 +256,16 @@ export const Timeline = () => (
           <div key={idx} className={`flex flex-col md:flex-row gap-6 md:gap-10 items-start md:items-center ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
             <div className="flex-1 w-full md:text-right pl-20 md:pl-0 relative">
               {idx % 2 === 0 && (
-                <>
-                  <div className="hidden md:block">
-                     <h3 className="text-2xl font-bold text-[#002B49]">{item.title}</h3>
-                     <p className="text-gray-600 mt-2 text-lg">{item.desc}</p>
-                  </div>
-                  <div className="md:hidden">
-                     <span className="inline-block bg-[#002B49]/5 text-[#002B49] px-4 py-1 rounded-full text-sm font-bold border border-[#002B49]/10 mb-2">{item.date}</span>
-                     <h3 className="text-2xl font-bold text-[#002B49]">{item.title}</h3>
-                     <p className="text-gray-600 mt-2 text-lg">{item.desc}</p>
-                  </div>
-                </>
+                <div className="hidden md:block">
+                   <h3 className="text-2xl font-bold text-[#002B49]">{item.title}</h3>
+                   <p className="text-gray-600 mt-2 text-lg">{item.desc}</p>
+                </div>
               )}
+              <div className="md:hidden">
+                 <span className="inline-block bg-[#002B49]/5 text-[#002B49] px-4 py-1 rounded-full text-sm font-bold border border-[#002B49]/10 mb-2">{item.date}</span>
+                 <h3 className="text-2xl font-bold text-[#002B49]">{item.title}</h3>
+                 <p className="text-gray-600 mt-2 text-lg">{item.desc}</p>
+              </div>
             </div>
             
             <div className="absolute left-8 md:left-1/2 w-6 h-6 bg-[#FF6B00] rounded-full transform -translate-x-1/2 border-4 border-white shadow-lg z-10 mt-1 md:mt-0"></div>

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 // --- Components ---
 
 export const Hero = () => (
-  <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#002B49] text-white py-20 md:py-32 lg:py-40">
+  <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#002B49] text-white py-16 md:py-24 lg:py-28">
     {/* Background Image with Overlay */}
     <div className="absolute inset-0 z-0">
       <img
@@ -26,35 +26,35 @@ export const Hero = () => (
         <img
           src="https://automacao-piwigo.w3lidv.easypanel.host/i.php?/upload/2026/02/20/20260220133107-9cee8824-xl.png"
           alt="FOX IMAGEM Logo"
-          className="h-16 md:h-20 lg:h-24 mx-auto mb-6 md:mb-8 drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+          className="h-14 md:h-16 lg:h-20 mx-auto mb-4 md:mb-6 drop-shadow-2xl hover:scale-105 transition-transform duration-500"
         />
         
-        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 md:px-6 md:py-2 mb-6 md:mb-8 text-[#FF6B00] font-bold text-xs md:text-sm lg:text-base shadow-xl hover:bg-white/15 transition-colors cursor-default">
-          <Calendar size={16} className="md:w-[18px] md:h-[18px]" />
+        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 md:px-5 md:py-2 mb-4 md:mb-6 text-[#FF6B00] font-bold text-xs md:text-sm shadow-xl hover:bg-white/15 transition-colors cursor-default">
+          <Calendar size={14} className="md:w-[16px] md:h-[16px]" />
           <span>Início em Março de 2026 • 7 Meses de Imersão</span>
         </div>
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-6 md:mb-8 leading-tight tracking-tight drop-shadow-lg">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-4 md:mb-6 leading-tight tracking-tight drop-shadow-lg">
           Residência não é sorte. <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] to-[#ff9e55]">É estratégia.</span>
         </h1>
         
-        <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-10 max-w-3xl mx-auto font-light leading-relaxed">
+        <p className="text-base md:text-lg lg:text-xl text-gray-200 mb-6 md:mb-8 max-w-3xl mx-auto font-light leading-relaxed">
           Domine o Diagnóstico por Imagem Veterinário com o método referência nacional. 
-          <strong className="block mt-2 md:mt-3 text-white font-semibold text-xl md:text-2xl">Pare de estudar o que sobra. Estude o que cai.</strong>
+          <strong className="block mt-2 text-white font-semibold text-lg md:text-xl">Pare de estudar o que sobra. Estude o que cai.</strong>
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="#matricula"
-            className="bg-[#FF6B00] hover:bg-[#e66000] text-white text-lg md:text-xl font-bold py-4 px-10 md:py-5 md:px-12 rounded-full shadow-[0_10px_40px_rgba(255,107,0,0.4)] hover:shadow-[0_15px_50px_rgba(255,107,0,0.6)] transition-all transform hover:-translate-y-1 flex items-center gap-3 border-2 border-[#FF6B00] hover:border-[#e66000]"
+            className="bg-[#FF6B00] hover:bg-[#e66000] text-white text-base md:text-lg font-bold py-3 px-8 md:py-4 md:px-10 rounded-full shadow-[0_10px_40px_rgba(255,107,0,0.4)] hover:shadow-[0_15px_50px_rgba(255,107,0,0.6)] transition-all transform hover:-translate-y-1 flex items-center gap-2 border-2 border-[#FF6B00] hover:border-[#e66000]"
           >
-            QUERO MINHA VAGA <ArrowRight size={24} />
+            QUERO MINHA VAGA <ArrowRight size={20} />
           </a>
         </div>
         
-        <p className="mt-6 md:mt-8 text-xs md:text-sm text-gray-400 flex items-center justify-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
-          <ShieldCheck size={16} className="text-[#FF6B00] md:w-[18px] md:h-[18px]" /> Garantia incondicional de 7 dias
+        <p className="mt-4 md:mt-6 text-xs text-gray-400 flex items-center justify-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+          <ShieldCheck size={14} className="text-[#FF6B00] md:w-[16px] md:h-[16px]" /> Garantia incondicional de 7 dias
         </p>
       </motion.div>
     </div>

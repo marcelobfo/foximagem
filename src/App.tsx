@@ -1,33 +1,14 @@
-import { Hero, PainPoints, Solution, Curriculum, Timeline, Investment, Faculty, FAQ, Footer } from './components/Sections';
-import { ExitIntentPopup, CheckoutPopup } from './components/Popups';
-import { useExitIntent } from './hooks/usePopups';
-import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import StudyRoutine from './pages/StudyRoutine';
 
 export default function App() {
-  const { isVisible: showExitPopup, setIsVisible: setShowExitPopup } = useExitIntent();
-  const [showCheckoutPopup, setShowCheckoutPopup] = useState(false);
-
   return (
-    <div className="font-sans text-gray-900 bg-white">
-      <Hero />
-      <PainPoints />
-      <Solution />
-      <Curriculum />
-      <Timeline />
-      <Investment onOpenCheckout={() => setShowCheckoutPopup(true)} />
-      <Faculty />
-      <FAQ />
-      <Footer />
-
-      <ExitIntentPopup 
-        isOpen={showExitPopup} 
-        onClose={() => setShowExitPopup(false)} 
-      />
-
-      <CheckoutPopup 
-        isOpen={showCheckoutPopup} 
-        onClose={() => setShowCheckoutPopup(false)} 
-      />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/rotina-de-estudos" element={<StudyRoutine />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

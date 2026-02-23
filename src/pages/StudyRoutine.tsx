@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { Calendar, CheckCircle2, Clock, AlertCircle, ArrowRight, Brain, Target, BarChart, BookOpen, HelpCircle, ShieldCheck } from 'lucide-react';
 import { Footer } from '../components/Sections';
@@ -21,6 +22,16 @@ export default function StudyRoutine() {
 
   return (
     <div className="font-sans text-gray-900 bg-[#0B1120] min-h-screen text-white">
+      <Helmet>
+        <title>Rotina de Estudos | FOX IMAGEM</title>
+        <meta name="description" content="Descubra como é a rotina de estudos de quem passa na residência veterinária. Evento gratuito e online." />
+        <meta property="og:title" content="Rotina de Estudos | FOX IMAGEM" />
+        <meta property="og:description" content="Descubra como é a rotina de estudos de quem passa na residência veterinária. Evento gratuito e online." />
+        <meta property="og:image" content="https://automacao-piwigo.w3lidv.easypanel.host/upload/2026/02/20/20260220133104-a45343c5.webp" />
+        <meta property="twitter:title" content="Rotina de Estudos | FOX IMAGEM" />
+        <meta property="twitter:description" content="Descubra como é a rotina de estudos de quem passa na residência veterinária. Evento gratuito e online." />
+        <meta property="twitter:image" content="https://automacao-piwigo.w3lidv.easypanel.host/upload/2026/02/20/20260220133104-a45343c5.webp" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>

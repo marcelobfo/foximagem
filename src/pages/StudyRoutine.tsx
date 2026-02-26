@@ -33,7 +33,7 @@ export default function StudyRoutine() {
         <meta property="twitter:image" content="https://automacao-piwigo.w3lidv.easypanel.host/upload/2026/02/20/20260220133104-a45343c5.webp" />
       </Helmet>
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
+      <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#002B49] to-[#0B1120] opacity-90 z-0"></div>
         
@@ -44,12 +44,12 @@ export default function StudyRoutine() {
             transition={{ duration: 0.8 }}
           >
             <img
-              src="https://automacao-piwigo.w3lidv.easypanel.host/i.php?/upload/2026/02/20/20260220133107-9cee8824-xl.png"
+              src="https://muevsilsemjixmafhohh.supabase.co/storage/v1/object/sign/technedigital/preparatorios%20(1).png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hY2IxMjQ0Ni0xZDk5LTQ3Y2YtYTI3Ny0zZDgxNjI5ZTc0MjciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0ZWNobmVkaWdpdGFsL3ByZXBhcmF0b3Jpb3MgKDEpLnBuZyIsImlhdCI6MTc3MjE0NTAwMiwiZXhwIjoyMTgyMTEzMDAyfQ.yxlLnHaNOlqJTWfFPlpWyvx1VH3UlE6uhScKO2onG4M"
               alt="FOX IMAGEM Logo"
-              className="h-16 mx-auto mb-8 drop-shadow-2xl"
+              className="h-24 md:h-36 mx-auto mb-6 drop-shadow-2xl"
             />
             
-            <div className="inline-flex items-center gap-2 bg-[#FF6B00]/10 border border-[#FF6B00]/20 rounded-full px-6 py-2 mb-8 text-[#FF6B00] font-bold text-sm uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 bg-[#FF6B00]/10 border border-[#FF6B00]/20 rounded-full px-6 py-2 mb-6 text-[#FF6B00] font-bold text-sm uppercase tracking-wider">
               <Calendar size={16} />
               <span>17 e 18 de Março • Evento Online e Gratuito</span>
             </div>

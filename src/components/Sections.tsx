@@ -1,11 +1,16 @@
 import { ArrowRight, CheckCircle2, Calendar, Clock, Award, Video, FileText, Users, HelpCircle, ChevronDown, ChevronUp, AlertCircle, ShieldCheck, Download, BookOpen, Star, Zap, Check } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-coverflow';
 
 // --- Components ---
 
 export const Hero = () => (
-  <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#002B49] text-white py-16 md:py-24 lg:py-28">
+  <section className="relative overflow-hidden bg-[#002B49] text-white pt-12 pb-20 md:pt-20 md:pb-28">
     {/* Background Image with Overlay */}
     <div className="absolute inset-0 z-0">
       <img
@@ -24,24 +29,23 @@ export const Hero = () => (
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <img
-          src="https://automacao-piwigo.w3lidv.easypanel.host/i.php?/upload/2026/02/20/20260220133107-9cee8824-xl.png"
+          src="https://muevsilsemjixmafhohh.supabase.co/storage/v1/object/sign/technedigital/preparatorios%20(1).png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hY2IxMjQ0Ni0xZDk5LTQ3Y2YtYTI3Ny0zZDgxNjI5ZTc0MjciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0ZWNobmVkaWdpdGFsL3ByZXBhcmF0b3Jpb3MgKDEpLnBuZyIsImlhdCI6MTc3MjE0NTAwMiwiZXhwIjoyMTgyMTEzMDAyfQ.yxlLnHaNOlqJTWfFPlpWyvx1VH3UlE6uhScKO2onG4M"
           alt="FOX IMAGEM Logo"
-          className="h-14 md:h-16 lg:h-20 mx-auto mb-4 md:mb-6 drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+          className="h-24 md:h-36 lg:h-48 mx-auto mb-6 drop-shadow-2xl hover:scale-105 transition-transform duration-500"
         />
         
-        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 md:px-5 md:py-2 mb-4 md:mb-6 text-[#FF6B00] font-bold text-xs md:text-sm shadow-xl hover:bg-white/15 transition-colors cursor-default">
+        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 md:px-5 md:py-2 mb-4 text-[#FF6B00] font-bold text-xs md:text-sm shadow-xl hover:bg-white/15 transition-colors cursor-default">
           <Calendar size={14} className="md:w-[16px] md:h-[16px]" />
           <span>Início em Março de 2026 • 7 Meses de Imersão</span>
         </div>
 
         <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-4 md:mb-6 leading-tight tracking-tight drop-shadow-lg">
-          Residência não é sorte. <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] to-[#ff9e55]">É estratégia.</span>
+          Mais de 100 aprovações <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] to-[#ff9e55]">em 6 anos.</span>
         </h1>
         
         <p className="text-base md:text-lg lg:text-xl text-gray-200 mb-6 md:mb-8 max-w-3xl mx-auto font-light leading-relaxed">
-          Domine o Diagnóstico por Imagem Veterinário com o método referência nacional. 
-          <strong className="block mt-2 text-white font-semibold text-lg md:text-xl">Pare de estudar o que sobra. Estude o que cai.</strong>
+          <strong className="block mt-2 text-white font-semibold text-lg md:text-xl">Domine as provas de residência.</strong>
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -123,7 +127,7 @@ export const Solution = () => (
           { icon: Video, title: "Aulas Ao Vivo e Gravadas", desc: "Terças às 19:30. Acesso total às gravações até 31/01/2027 para rever quantas vezes precisar.", color: "text-blue-400" },
           { icon: Award, title: "4 Simulados Oficiais", desc: "Treine com ranking e meça seu desempenho real antes da prova oficial.", color: "text-[#FF6B00]" },
           { icon: BookOpen, title: "Material de Apoio", desc: "E-books, flashcards (Anki), cadernos de questões e slides completos.", color: "text-emerald-400" },
-          { icon: Users, title: "Mentoria e Suporte", desc: "Acompanhamento direto no WhatsApp. Você nunca estará estudando sozinho.", color: "text-purple-400" }
+          { icon: Users, title: "Suporte no WhatsApp", desc: "Acompanhamento direto no WhatsApp. Você nunca estará estudando sozinho.", color: "text-purple-400" }
         ].map((feature, idx) => (
           <div key={idx} className="bg-[#001E33] p-8 rounded-3xl border border-white/5 hover:border-[#FF6B00]/30 transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1">
             <div className={`w-14 h-14 md:w-16 md:h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:bg-[#FF6B00] group-hover:text-white transition-all duration-300 ${feature.color}`}>
@@ -207,9 +211,9 @@ export const Curriculum = () => {
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#00406b]/20 to-transparent"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 relative">
-          <div className="w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#FF6B00] shadow-lg">
+          <div className="w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden shadow-lg">
             <img 
-              src="https://automacao-piwigo.w3lidv.easypanel.host/upload/2026/02/20/20260220133104-a45343c5.webp" 
+              src="https://muevsilsemjixmafhohh.supabase.co/storage/v1/object/sign/technedigital/raposa.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hY2IxMjQ0Ni0xZDk5LTQ3Y2YtYTI3Ny0zZDgxNjI5ZTc0MjciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0ZWNobmVkaWdpdGFsL3JhcG9zYS53ZWJwIiwiaWF0IjoxNzcyMTQ0MTg4LCJleHAiOjIxNTA1NzYxODh9.WQqPqf0Y8b665nq2PjOIHIlWk3OWjb8sKPsQNNRK4_E" 
               alt="Fox Symbol" 
               className="w-full h-full object-cover"
             />
@@ -365,6 +369,80 @@ export const Investment = ({ onOpenCheckout }: InvestmentProps) => (
   </section>
 );
 
+export const Testimonials = () => {
+  const testimonials = [
+    "https://muevsilsemjixmafhohh.supabase.co/storage/v1/object/sign/technedigital/depo01.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hY2IxMjQ0Ni0xZDk5LTQ3Y2YtYTI3Ny0zZDgxNjI5ZTc0MjciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0ZWNobmVkaWdpdGFsL2RlcG8wMS53ZWJwIiwiaWF0IjoxNzcyMTQzNDU5LCJleHAiOjIwODc1MDM0NTl9.-HBuiceNXVK-Cv6rSVls8ACSk3l7pOj4lYQvyD1c16Y",
+    "https://muevsilsemjixmafhohh.supabase.co/storage/v1/object/sign/technedigital/depo02.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hY2IxMjQ0Ni0xZDk5LTQ3Y2YtYTI3Ny0zZDgxNjI5ZTc0MjciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0ZWNobmVkaWdpdGFsL2RlcG8wMi53ZWJwIiwiaWF0IjoxNzcyMTQzNDgxLCJleHAiOjIwODc1MDM0ODF9.DAijgu73z3Wlppi5G6wGLqBD05-u16UoxsD7FFp3kQs",
+    "https://muevsilsemjixmafhohh.supabase.co/storage/v1/object/sign/technedigital/depo03.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hY2IxMjQ0Ni0xZDk5LTQ3Y2YtYTI3Ny0zZDgxNjI5ZTc0MjciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0ZWNobmVkaWdpdGFsL2RlcG8wMy53ZWJwIiwiaWF0IjoxNzcyMTQzNDk3LCJleHAiOjIwODc1MDM0OTd9.8wugZHWU15B4Vz8Mvnw48xbKGHKrEfIYrdm0OejF7QE",
+    "https://muevsilsemjixmafhohh.supabase.co/storage/v1/object/sign/technedigital/depo04.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hY2IxMjQ0Ni0xZDk5LTQ3Y2YtYTI3Ny0zZDgxNjI5ZTc0MjciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0ZWNobmVkaWdpdGFsL2RlcG8wNC53ZWJwIiwiaWF0IjoxNzcyMTQzNTEyLCJleHAiOjIwODc1MDM1MTJ9.yiR1IOtLJYz-8FC4sLhxLhORK8c6OHXd6yRsHeAClU0"
+  ];
+
+  return (
+    <section className="py-24 md:py-32 bg-[#001E33] relative overflow-hidden">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            O que dizem nossos alunos
+          </h2>
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            Histórias reais de quem confiou no método e conquistou a aprovação.
+          </p>
+        </div>
+
+        <div className="max-w-6xl mx-auto">
+          <Swiper
+            effect={'coverflow'}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={'auto'}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 100,
+              modifier: 2.5,
+              slideShadows: false,
+            }}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            pagination={{ clickable: true }}
+            modules={[EffectCoverflow, Pagination, Autoplay]}
+            className="w-full py-10"
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 20
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 30
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 40
+              }
+            }}
+          >
+            {testimonials.map((img, idx) => (
+              <SwiperSlide key={idx} className="!w-[300px] md:!w-[350px]">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 transform transition-transform hover:scale-105">
+                  <img 
+                    src={img} 
+                    alt={`Depoimento ${idx + 1}`} 
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export const Faculty = () => (
   <section className="py-24 md:py-32 bg-[#0B1120] border-t border-white/5">
     <div className="container mx-auto px-4 text-center">
@@ -375,7 +453,7 @@ export const Faculty = () => (
         Aprenda com mestres e doutores que são referência na área.
       </p>
 
-      <div className="grid md:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-1 gap-8 md:gap-10 max-w-2xl mx-auto">
         <div className="bg-[#001E33] p-10 rounded-[2rem] border border-white/5 hover:border-[#FF6B00]/30 transition-all hover:shadow-2xl hover:-translate-y-2 group">
           <div className="w-32 h-32 bg-white/5 rounded-full mx-auto mb-8 flex items-center justify-center text-white group-hover:bg-[#FF6B00] transition-colors shadow-inner">
              <Users size={48} />
@@ -384,17 +462,6 @@ export const Faculty = () => (
           <p className="text-[#FF6B00] font-bold mb-6 uppercase tracking-wide text-sm">UFLA</p>
           <p className="text-gray-400 text-lg leading-relaxed">
             Referência em Ultrassonografia e Radiologia. Coordenador de módulos fundamentais do curso.
-          </p>
-        </div>
-
-        <div className="bg-[#001E33] p-10 rounded-[2rem] border border-white/5 hover:border-[#FF6B00]/30 transition-all hover:shadow-2xl hover:-translate-y-2 group">
-          <div className="w-32 h-32 bg-white/5 rounded-full mx-auto mb-8 flex items-center justify-center text-white group-hover:bg-[#FF6B00] transition-colors shadow-inner">
-             <Users size={48} />
-          </div>
-          <h3 className="text-2xl font-bold text-white mb-2">Prof. Dra. Tilde Froes</h3>
-          <p className="text-[#FF6B00] font-bold mb-6 uppercase tracking-wide text-sm">UFPR</p>
-          <p className="text-gray-400 text-lg leading-relaxed">
-            Especialista em Radiologia Torácica e Abdominal. Uma das maiores autoridades do país.
           </p>
         </div>
       </div>
@@ -465,9 +532,9 @@ export const Footer = () => (
   <footer className="bg-[#002B49] text-white py-20 border-t border-white/10">
     <div className="container mx-auto px-4 text-center">
       <div className="flex flex-col items-center justify-center gap-6 mb-10">
-        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-[#FF6B00]/50 shadow-lg">
+        <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg">
             <img 
-              src="https://automacao-piwigo.w3lidv.easypanel.host/upload/2026/02/20/20260220133104-a45343c5.webp" 
+              src="https://muevsilsemjixmafhohh.supabase.co/storage/v1/object/sign/technedigital/raposa.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hY2IxMjQ0Ni0xZDk5LTQ3Y2YtYTI3Ny0zZDgxNjI5ZTc0MjciLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0ZWNobmVkaWdpdGFsL3JhcG9zYS53ZWJwIiwiaWF0IjoxNzcyMTQ0MTg4LCJleHAiOjIxNTA1NzYxODh9.WQqPqf0Y8b665nq2PjOIHIlWk3OWjb8sKPsQNNRK4_E" 
               alt="Fox Symbol" 
               className="w-full h-full object-cover"
             />

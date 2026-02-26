@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Hero, PainPoints, Solution, Curriculum, Timeline, Investment, Faculty, FAQ, Footer } from '../components/Sections';
+import { Hero, PainPoints, Solution, Curriculum, Timeline, Investment, Faculty, FAQ, Footer, Testimonials } from '../components/Sections';
 import { ExitIntentPopup, CheckoutPopup } from '../components/Popups';
 import { useExitIntent } from '../hooks/usePopups';
 import { useState } from 'react';
@@ -25,6 +25,7 @@ export default function Home() {
       <Solution />
       <Curriculum />
       <Timeline />
+      <Testimonials />
       <Investment onOpenCheckout={() => setShowCheckoutPopup(true)} />
       <Faculty />
       <FAQ />

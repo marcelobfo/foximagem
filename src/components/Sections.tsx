@@ -45,7 +45,7 @@ export const Hero = () => (
         </h1>
         
         <p className="text-base md:text-lg lg:text-xl text-gray-200 mb-6 md:mb-8 max-w-3xl mx-auto font-light leading-relaxed">
-          <strong className="block mt-2 text-white font-semibold text-lg md:text-xl">Domine as provas de residência.</strong>
+          <strong className="block mt-2 text-white font-semibold text-lg md:text-xl">Domine provas de residência com o método que é referência nacional.</strong>
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

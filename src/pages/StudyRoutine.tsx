@@ -80,7 +80,7 @@ export default function StudyRoutine() {
             </h1>
             
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Descubra o método exato para estudar com inteligência, ganhar tempo e conquistar sua aprovação em 2026.
+              Descubra o método exato para estudar com inteligência, ganhar tempo e conquistar sua aprovação em 2027.
             </p>
 
             <div className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 max-w-md mx-auto shadow-2xl">

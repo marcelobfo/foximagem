@@ -11,13 +11,34 @@ export default function StudyRoutine() {
     phone: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate webhook submission
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    // Here you would typically send data to your webhook
+    setLoading(true);
+    
+    try {
+      const response = await fetch('https://automacao-n8n.w3lidv.easypanel.host/webhook/rotina', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        console.log('Form submitted successfully:', formData);
+      } else {
+        console.error('Failed to submit form');
+        alert('Ocorreu um erro ao enviar sua inscrição. Por favor, tente novamente.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Ocorreu um erro ao enviar sua inscrição. Por favor, tente novamente.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -98,9 +119,10 @@ export default function StudyRoutine() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-[#FF6B00] hover:bg-[#e66000] text-white font-bold py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2"
+                    disabled={loading}
+                    className={`w-full bg-[#FF6B00] hover:bg-[#e66000] text-white font-bold py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
                   >
-                    QUERO PARTICIPAR <ArrowRight size={20} />
+                    {loading ? 'ENVIANDO...' : 'QUERO PARTICIPAR'} {!loading && <ArrowRight size={20} />}
                   </button>
                 </form>
               ) : (

@@ -72,7 +72,7 @@ export default function StudyRoutine() {
             
             <div className="inline-flex items-center gap-2 bg-[#FF6B00]/10 border border-[#FF6B00]/20 rounded-full px-6 py-2 mb-6 text-[#FF6B00] font-bold text-sm uppercase tracking-wider">
               <Calendar size={16} />
-              <span>17 e 18 de Março • Evento Online e Gratuito</span>
+              <span>17 de Março • Evento Online e Gratuito</span>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
@@ -173,18 +173,21 @@ export default function StudyRoutine() {
         <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Cronograma do Evento</h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Day 1 */}
+          <div className="max-w-3xl mx-auto">
             <div className="bg-[#001E33] rounded-3xl overflow-hidden border border-white/5 hover:border-[#FF6B00]/30 transition-all group">
               <div className="bg-[#FF6B00] p-6 text-center">
-                <h3 className="text-2xl font-bold text-white">DIA 1 - 17/03</h3>
-                <p className="text-white/90 font-medium">O Choque de Realidade</p>
+                <h3 className="text-2xl font-bold text-white">DIA ÚNICO - 17/03</h3>
+                <p className="text-white/90 font-medium">O Choque de Realidade & A Virada de Chave</p>
               </div>
               <div className="p-8 space-y-6">
-                <ul className="space-y-4 text-gray-300">
+                <ul className="space-y-4 text-gray-300 grid md:grid-cols-2 gap-x-8 gap-y-4">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="text-[#FF6B00] shrink-0 mt-1" size={20} />
                     <span>Análise de perguntas reais de provas anteriores</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="text-[#FF6B00] shrink-0 mt-1" size={20} />
+                    <span>Por que a FOX aprova tanto? O segredo do método</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="text-[#FF6B00] shrink-0 mt-1" size={20} />
@@ -192,40 +195,27 @@ export default function StudyRoutine() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="text-[#FF6B00] shrink-0 mt-1" size={20} />
-                    <span>Aula prática de 30min: Aprenda a ganhar tempo estudando certo</span>
-                  </li>
-                </ul>
-                <div className="bg-[#FF6B00]/10 p-4 rounded-xl border border-[#FF6B00]/20">
-                  <p className="text-[#FF6B00] font-bold text-sm uppercase mb-2">🎁 Premiação Exclusiva</p>
-                  <p className="text-gray-300 text-sm">As melhores notas na prova do dia receberão uma <strong className="text-white">Sessão Individual de Mentoria</strong>.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Day 2 */}
-            <div className="bg-[#001E33] rounded-3xl overflow-hidden border border-white/5 hover:border-[#FF6B00]/30 transition-all group">
-              <div className="bg-[#002B49] p-6 text-center border-b border-white/10">
-                <h3 className="text-2xl font-bold text-white">DIA 2 - 18/03</h3>
-                <p className="text-gray-400 font-medium">A Virada de Chave</p>
-              </div>
-              <div className="p-8 space-y-6">
-                <ul className="space-y-4 text-gray-300">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-[#FF6B00] shrink-0 mt-1" size={20} />
-                    <span>Por que a FOX aprova tanto? O segredo do método</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="text-[#FF6B00] shrink-0 mt-1" size={20} />
                     <span>Correção da prova e análise de desempenho</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="text-[#FF6B00] shrink-0 mt-1" size={20} />
+                    <span>Aula prática de 30min: Aprenda a ganhar tempo estudando certo</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="text-[#FF6B00] shrink-0 mt-1" size={20} />
                     <span>Mapa da Aprovação: Onde você precisa focar mais</span>
                   </li>
                 </ul>
-                <div className="bg-green-500/10 p-4 rounded-xl border border-green-500/20">
-                  <p className="text-green-400 font-bold text-sm uppercase mb-2">💎 Condição Especial</p>
-                  <p className="text-gray-300 text-sm">Abertura de vagas com <strong className="text-white">bônus exclusivo</strong> apenas para participantes ao vivo.</p>
+                
+                <div className="grid md:grid-cols-2 gap-6 pt-4">
+                  <div className="bg-[#FF6B00]/10 p-4 rounded-xl border border-[#FF6B00]/20">
+                    <p className="text-[#FF6B00] font-bold text-sm uppercase mb-2">🎁 Premiação Exclusiva</p>
+                    <p className="text-gray-300 text-sm">As melhores notas na prova do dia receberão uma <strong className="text-white">Sessão Individual de Mentoria</strong>.</p>
+                  </div>
+                  <div className="bg-green-500/10 p-4 rounded-xl border border-green-500/20">
+                    <p className="text-green-400 font-bold text-sm uppercase mb-2">💎 Condição Especial</p>
+                    <p className="text-gray-300 text-sm">Abertura de vagas com <strong className="text-white">bônus exclusivo</strong> apenas para participantes ao vivo.</p>
+                  </div>
                 </div>
               </div>
             </div>

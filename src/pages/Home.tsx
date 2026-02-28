@@ -4,9 +4,16 @@ import { ExitIntentPopup, CheckoutPopup } from '../components/Popups';
 import { useExitIntent } from '../hooks/usePopups';
 import { useState } from 'react';
 
+import { trackMetaEvent } from '../components/MetaPixel';
+
 export default function Home() {
   const { isVisible: showExitPopup, setIsVisible: setShowExitPopup } = useExitIntent();
   const [showCheckoutPopup, setShowCheckoutPopup] = useState(false);
+
+  const handleOpenCheckout = () => {
+    setShowCheckoutPopup(true);
+    trackMetaEvent('InitiateCheckout');
+  };
 
   return (
     <div className="font-sans text-gray-900 bg-white">
@@ -26,7 +33,7 @@ export default function Home() {
       <Curriculum />
       <Timeline />
       <Testimonials />
-      <Investment onOpenCheckout={() => setShowCheckoutPopup(true)} />
+      <Investment onOpenCheckout={handleOpenCheckout} />
       <Faculty />
       <FAQ />
       <Footer />

@@ -4,6 +4,8 @@ import { motion } from 'motion/react';
 import { Calendar, CheckCircle2, Clock, AlertCircle, ArrowRight, Brain, Target, BarChart, BookOpen, HelpCircle, ShieldCheck } from 'lucide-react';
 import { Footer } from '../components/Sections';
 
+import { trackMetaEvent } from '../components/MetaPixel';
+
 export default function StudyRoutine() {
   const [formData, setFormData] = useState({
     name: '',
@@ -18,6 +20,15 @@ export default function StudyRoutine() {
     setLoading(true);
     
     try {
+      // Track Lead Event (Pixel + CAPI)
+      // Note: In a real scenario, hash PII (email, phone) before sending if required by your privacy policy or Meta's best practices.
+      // The server-side implementation should handle hashing if raw data is sent securely.
+      trackMetaEvent('Lead', {
+        em: formData.email, // Meta expects hashed, but accepts raw if sent via secure channel (HTTPS) and hashed on server or by Meta if configured.
+        ph: formData.phone,
+        fn: formData.name,
+      });
+
       const response = await fetch('https://automacao-n8n.w3lidv.easypanel.host/webhook/rotina', {
         method: 'POST',
         headers: {

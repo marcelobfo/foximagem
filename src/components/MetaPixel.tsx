@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
-
+const eventId = crypto.randomUUID()
 // Define the window interface to include fbq
 declare global {
   interface Window {

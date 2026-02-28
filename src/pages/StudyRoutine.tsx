@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import { Calendar, CheckCircle2, Clock, AlertCircle, ArrowRight, Brain, Target, BarChart, BookOpen, HelpCircle, ShieldCheck } from 'lucide-react';
 import { Footer } from '../components/Sections';
 
-import { trackMetaEvent } from '../components/MetaPixel';
+import { trackMetaEvent, trackCompleteRegistration } from '../components/MetaPixel';
 
 export default function StudyRoutine() {
   const [formData, setFormData] = useState({
@@ -39,6 +39,7 @@ export default function StudyRoutine() {
 
       if (response.ok) {
         setSubmitted(true);
+        trackCompleteRegistration(); // Track registration
         console.log('Form submitted successfully:', formData);
       } else {
         console.error('Failed to submit form');

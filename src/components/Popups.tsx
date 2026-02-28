@@ -2,6 +2,7 @@ import { useState } from 'react';
 import React from 'react';
 import { X, Check, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { trackCompleteRegistration } from './MetaPixel';
 
 interface PopupProps {
   isOpen: boolean;
@@ -38,6 +39,7 @@ export function ExitIntentPopup({ isOpen, onClose }: PopupProps) {
         body: JSON.stringify(payload)
       });
       setStatus('success');
+      trackCompleteRegistration(); // Track registration
       setTimeout(onClose, 3000);
     } catch (error) {
       console.error('Erro ao enviar:', error);
@@ -167,6 +169,7 @@ export function LeadMagnetPopup({ isOpen, onClose }: PopupProps) {
         body: JSON.stringify(payload)
       });
       setStatus('success');
+      trackCompleteRegistration(); // Track registration
       setTimeout(onClose, 3000);
     } catch (error) {
       console.error('Erro ao enviar:', error);

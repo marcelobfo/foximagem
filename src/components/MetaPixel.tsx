@@ -14,32 +14,32 @@ export const MetaPixel = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Initialize Facebook Pixel
-    const pixelId = import.meta.env.VITE_META_PIXEL_ID;
-    
-    if (pixelId) {
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      
-      window.fbq('init', pixelId);
-      window.fbq('track', 'PageView');
-    }
-  }, []);
-
-  useEffect(() => {
     // Track PageView on route change
     if (window.fbq) {
       window.fbq('track', 'PageView');
+
+      // Track ViewContent for page content
+      window.fbq('track', 'ViewContent', {
+        content_name: 'Pagina de Conteudo',
+        content_category: 'Diagnostico',
+        content_type: 'product',
+        currency: 'BRL',
+        value: 0.00
+      });
     }
   }, [location]);
 
   return null;
+};
+
+// Helper function for CompleteRegistration event
+export const trackCompleteRegistration = () => {
+  if (window.fbq) {
+    window.fbq('track', 'CompleteRegistration', {
+      content_name: 'Cadastro finalizado',
+      status: true
+    });
+  }
 };
 
 // Utility to track events via both Pixel (Browser) and CAPI (Server)
@@ -63,9 +63,7 @@ export const trackMetaEvent = async (eventName: string, userData: any = {}, cust
         eventName,
         eventId,
         eventSourceUrl,
-        userData, // e.g., { em: 'hashed_email', ph: 'hashed_phone' } - hashing should be done if sending raw data, but CAPI accepts raw if server handles hashing or if sending securely. 
-                  // Ideally, we should hash on client or server. Meta recommends SHA-256.
-                  // For simplicity here, we pass data. In a real app, ensure PII is hashed before sending or handled securely.
+        userData,
         customData,
       }),
     });

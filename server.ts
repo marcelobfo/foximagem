@@ -87,6 +87,34 @@ async function startServer() {
     const distPath = resolve(__dirname, 'dist');
     if (fs.existsSync(distPath)) {
       app.use(express.static(distPath));
+
+      // SEO Injection for /rotina-de-estudos
+      app.get('/rotina-de-estudos', (req, res) => {
+        try {
+          const indexPath = resolve(distPath, 'index.html');
+          let html = fs.readFileSync(indexPath, 'utf-8');
+          
+          const title = "Rotina de Estudos | FOX IMAGEM";
+          const description = "Descubra como é a rotina de estudos de quem passa na residência veterinária. Evento gratuito e online.";
+          // Image is currently the same, but we can replace it if needed
+          // const image = "...";
+
+          // Replace Title
+          html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
+          
+          // Replace OG Title and Twitter Title (assuming they match the default content)
+          html = html.replace(/content="FOX IMAGEM \| Residência não é sorte\. É estratégia\."/g, `content="${title}"`);
+          
+          // Replace OG Description and Twitter Description
+          html = html.replace(/content="Domine o Diagnóstico por Imagem Veterinário com o método que é referência nacional\."/g, `content="${description}"`);
+
+          res.send(html);
+        } catch (error) {
+          console.error('Error serving /rotina-de-estudos:', error);
+          res.sendFile(resolve(distPath, 'index.html'));
+        }
+      });
+
       app.get('*', (req, res) => {
         res.sendFile(resolve(distPath, 'index.html'));
       });

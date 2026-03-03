@@ -89,24 +89,49 @@ async function startServer() {
       app.use(express.static(distPath));
 
       // SEO Injection for /rotina-de-estudos
-      app.get('/rotina-de-estudos', (req, res) => {
+      // Handle both /rotina-de-estudos and /rotina-de-estudos/
+      app.get(['/rotina-de-estudos', '/rotina-de-estudos/'], (req, res) => {
         try {
           const indexPath = resolve(distPath, 'index.html');
           let html = fs.readFileSync(indexPath, 'utf-8');
           
           const title = "Rotina de Estudos | FOX IMAGEM";
           const description = "Descubra como é a rotina de estudos de quem passa na residência veterinária. Evento gratuito e online.";
-          // Image is currently the same, but we can replace it if needed
-          // const image = "...";
-
-          // Replace Title
+          
+          // Robust replacements using regex that targets the meta tags directly
+          
+          // 1. Replace <title>
           html = html.replace(/<title>.*?<\/title>/, `<title>${title}</title>`);
           
-          // Replace OG Title and Twitter Title (assuming they match the default content)
-          html = html.replace(/content="FOX IMAGEM \| Residência não é sorte\. É estratégia\."/g, `content="${title}"`);
-          
-          // Replace OG Description and Twitter Description
-          html = html.replace(/content="Domine o Diagnóstico por Imagem Veterinário com o método que é referência nacional\."/g, `content="${description}"`);
+          // 2. Replace meta name="description"
+          html = html.replace(
+            /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i,
+            `<meta name="description" content="${description}" />`
+          );
+
+          // 3. Replace meta property="og:title"
+          html = html.replace(
+            /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/i,
+            `<meta property="og:title" content="${title}" />`
+          );
+
+          // 4. Replace meta property="og:description"
+          html = html.replace(
+            /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/i,
+            `<meta property="og:description" content="${description}" />`
+          );
+
+          // 5. Replace meta property="twitter:title"
+          html = html.replace(
+            /<meta\s+property="twitter:title"\s+content="[^"]*"\s*\/?>/i,
+            `<meta property="twitter:title" content="${title}" />`
+          );
+
+          // 6. Replace meta property="twitter:description"
+          html = html.replace(
+            /<meta\s+property="twitter:description"\s+content="[^"]*"\s*\/?>/i,
+            `<meta property="twitter:description" content="${description}" />`
+          );
 
           res.send(html);
         } catch (error) {

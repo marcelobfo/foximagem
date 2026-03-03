@@ -224,15 +224,15 @@ export default function StudyRoutine() {
                 <ul className="space-y-4 text-gray-300">
                   <li className="flex items-start gap-3">
                     <span className="bg-[#FF6B00] text-white text-xs font-bold px-2 py-1 rounded-md shrink-0 mt-0.5">AULA</span>
-                    <span><strong>Diagnóstico por imagem:</strong> Simplificando os padrões pulmonares radiográficos</span>
+                    <span><strong>Diagnóstico por imagem</strong></span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="bg-[#FF6B00] text-white text-xs font-bold px-2 py-1 rounded-md shrink-0 mt-0.5">AULA</span>
-                    <span><strong>Cirurgia e Anestesia:</strong> A definir</span>
+                    <span><strong>Cirurgia e Anestesia</strong></span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="bg-[#FF6B00] text-white text-xs font-bold px-2 py-1 rounded-md shrink-0 mt-0.5">AULA</span>
-                    <span><strong>Clínica de pequenos animais:</strong> A definir</span>
+                    <span><strong>Clínica de pequenos animais</strong></span>
                   </li>
                 </ul>
                 

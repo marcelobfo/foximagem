@@ -89,8 +89,8 @@ async function startServer() {
       app.use(express.static(distPath));
 
       // SEO Injection for /imersao
-      // Handle both /imersao and /imersao/
-      app.get(['/imersao', '/imersao/'], (req, res) => {
+      // Handle /imersao, /Imersao, /imersao/, etc. (Case insensitive)
+      app.get(/^\/imersao\/?$/i, (req, res) => {
         try {
           const indexPath = resolve(distPath, 'index.html');
           let html = fs.readFileSync(indexPath, 'utf-8');

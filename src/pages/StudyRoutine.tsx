@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { Calendar, CheckCircle2, Clock, AlertCircle, ArrowRight, Brain, Target, BarChart, BookOpen, HelpCircle, ShieldCheck } from 'lucide-react';
+import { Calendar, CheckCircle2, Clock, AlertCircle, ArrowRight, Brain, Target, BarChart, BookOpen, HelpCircle, ShieldCheck, Gift, Gem } from 'lucide-react';
 import { Footer } from '../components/Sections';
 
 import { trackMetaEvent, trackCompleteRegistration } from '../components/MetaPixel';
@@ -87,57 +87,86 @@ export default function StudyRoutine() {
               <span>17 de Março • EVENTO ONLINE E GRATUITO • 20H</span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-black mb-6 leading-none tracking-tight">
               Imersão prática no método que <span className="text-[#FF6B00]">transforma estudo em aprovação</span>
             </h1>
             
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-              O Método na prática: Com uma aula exclusiva feita pelos nossos professores de um dos temas mais complexos de cada prova!
+              O método na prática: com uma aula exclusiva, feita pelos nossos professores, de um dos temas mais complexos de cada prova.
             </p>
 
-            <div className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 max-w-md mx-auto shadow-2xl">
-              {!submitted ? (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <h3 className="text-xl font-bold mb-4">Garanta sua vaga gratuita</h3>
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Seu nome completo"
-                      required
-                      className="w-full bg-[#0B1120] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FF6B00] transition-colors"
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="email"
-                      placeholder="Seu melhor e-mail"
-                      required
-                      className="w-full bg-[#0B1120] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FF6B00] transition-colors"
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="tel"
-                      placeholder="Seu WhatsApp"
-                      required
-                      className="w-full bg-[#0B1120] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FF6B00] transition-colors"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className={`w-full bg-[#FF6B00] hover:bg-[#e66000] text-white font-bold py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
-                  >
-                    {loading ? 'ENVIANDO...' : 'QUERO PARTICIPAR'} {!loading && <ArrowRight size={20} />}
-                  </button>
-                </form>
-              ) : (
+            <div className="relative max-w-md mx-auto">
+              {/* Animated Border Background */}
+              <div className="absolute -inset-[3px] rounded-3xl overflow-hidden">
+                <div className="absolute inset-[-200%] bg-[conic-gradient(from_90deg_at_50%_50%,#0B1120_0%,#FF6B00_50%,#0B1120_100%)] animate-[spin_3s_linear_infinite]"></div>
+              </div>
+
+              <div className="relative bg-[#0B1120] p-8 rounded-3xl border border-white/10 shadow-2xl">
+                {!submitted ? (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <h3 className="text-xl font-bold mb-4">Garanta sua vaga gratuita</h3>
+                    <div>
+                      <input
+                        type="text"
+                        placeholder="Seu nome completo"
+                        required
+                        className="w-full bg-[#0B1120] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FF6B00] transition-colors"
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="email"
+                        placeholder="Seu melhor e-mail"
+                        required
+                        className="w-full bg-[#0B1120] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FF6B00] transition-colors"
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="tel"
+                        placeholder="Seu WhatsApp"
+                        required
+                        className="w-full bg-[#0B1120] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#FF6B00] transition-colors"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className={`w-full bg-[#FF6B00] hover:bg-[#e66000] text-white font-bold py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
+                    >
+                      {loading ? 'ENVIANDO...' : 'QUERO PARTICIPAR'} {!loading && <ArrowRight size={20} />}
+                    </button>
+
+                    {/* Bonuses Section */}
+                    <div className="pt-6 mt-2 space-y-3">
+                      <div className="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-[#FF6B00]/30 shadow-[0_0_15px_rgba(255,107,0,0.15)]">
+                        <div className="bg-[#FF6B00] p-2 rounded-lg text-white shrink-0">
+                          <Gift size={20} />
+                        </div>
+                        <p className="text-sm leading-tight text-gray-200">
+                          <span className="text-[#FF6B00] font-bold block text-base mb-0.5">Sorteio de Bolsas</span>
+                          Concorra a bolsas de 100% e 50%
+                        </p>
+                      </div>
+                      
+                      <div className="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-green-500/30 shadow-[0_0_15px_rgba(34,197,94,0.15)]">
+                        <div className="bg-green-600 p-2 rounded-lg text-white shrink-0">
+                          <Gem size={20} />
+                        </div>
+                        <p className="text-sm leading-tight text-gray-200">
+                          <span className="text-green-400 font-bold block text-base mb-0.5">Condição Especial</span>
+                          Bônus exclusivo para quem estiver ao vivo
+                        </p>
+                      </div>
+                    </div>
+                  </form>
+                ) : (
                 <div className="text-center py-8">
                   <div className="w-16 h-16 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle2 size={32} />
@@ -146,6 +175,7 @@ export default function StudyRoutine() {
                   <p className="text-gray-400">Fique atento ao seu e-mail e WhatsApp para receber o link das aulas.</p>
                 </div>
               )}
+              </div>
             </div>
           </motion.div>
         </div>

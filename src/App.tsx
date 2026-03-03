@@ -11,7 +11,7 @@ export default function App() {
         <MetaPixel />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/rotina-de-estudos" element={<StudyRoutine />} />
+          <Route path="/imersao" element={<StudyRoutine />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>

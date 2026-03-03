@@ -88,9 +88,9 @@ async function startServer() {
     if (fs.existsSync(distPath)) {
       app.use(express.static(distPath));
 
-      // SEO Injection for /rotina-de-estudos
-      // Handle both /rotina-de-estudos and /rotina-de-estudos/
-      app.get(['/rotina-de-estudos', '/rotina-de-estudos/'], (req, res) => {
+      // SEO Injection for /imersao
+      // Handle both /imersao and /imersao/
+      app.get(['/imersao', '/imersao/'], (req, res) => {
         try {
           const indexPath = resolve(distPath, 'index.html');
           let html = fs.readFileSync(indexPath, 'utf-8');
@@ -135,7 +135,7 @@ async function startServer() {
 
           res.send(html);
         } catch (error) {
-          console.error('Error serving /rotina-de-estudos:', error);
+          console.error('Error serving /imersao:', error);
           res.sendFile(resolve(distPath, 'index.html'));
         }
       });

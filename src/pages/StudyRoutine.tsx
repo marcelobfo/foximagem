@@ -221,18 +221,30 @@ export default function StudyRoutine() {
                 <p className="text-white/90 font-medium mt-2">17 DE MARÇO | 20H</p>
               </div>
               <div className="p-8 space-y-6">
-                <ul className="space-y-4 text-gray-300">
-                  <li className="flex items-start gap-3">
-                    <span className="bg-[#FF6B00] text-white text-xs font-bold px-2 py-1 rounded-md shrink-0 mt-0.5">AULA</span>
-                    <span><strong>Diagnóstico por imagem</strong></span>
+                <ul className="space-y-6 text-gray-300">
+                  <li className="flex items-start gap-4">
+                    <span className="bg-[#FF6B00] text-white text-xs font-bold px-2 py-1 rounded-md shrink-0 mt-1">AULA</span>
+                    <div>
+                      <strong className="block text-white text-lg">Diagnóstico por Imagem</strong>
+                      <span className="block text-gray-400 mb-1">Simplificando os padrões pulmonares radiográficos</span>
+                      <span className="text-sm text-[#FF6B00] font-medium">Prof. Antônio Lacreta</span>
+                    </div>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="bg-[#FF6B00] text-white text-xs font-bold px-2 py-1 rounded-md shrink-0 mt-0.5">AULA</span>
-                    <span><strong>Cirurgia e Anestesia</strong></span>
+                  <li className="flex items-start gap-4">
+                    <span className="bg-[#FF6B00] text-white text-xs font-bold px-2 py-1 rounded-md shrink-0 mt-1">AULA</span>
+                    <div>
+                      <strong className="block text-white text-lg">Clínica de pequenos animais</strong>
+                      <span className="block text-gray-400 mb-1">Alergia alimentar cutânea e enteropatia crônica</span>
+                      <span className="text-sm text-[#FF6B00] font-medium">Prof. Mariana Porsani</span>
+                    </div>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="bg-[#FF6B00] text-white text-xs font-bold px-2 py-1 rounded-md shrink-0 mt-0.5">AULA</span>
-                    <span><strong>Clínica de pequenos animais</strong></span>
+                  <li className="flex items-start gap-4">
+                    <span className="bg-[#FF6B00] text-white text-xs font-bold px-2 py-1 rounded-md shrink-0 mt-1">AULA</span>
+                    <div>
+                      <strong className="block text-white text-lg">Cirurgia e anestesia</strong>
+                      <span className="block text-gray-400 mb-1">Ruptura do Ligamento Cruzado Cranial (RLCC) em Cães do diagnóstico ao tratamento</span>
+                      <span className="text-sm text-[#FF6B00] font-medium">Prof. Acácio Martins</span>
+                    </div>
                   </li>
                 </ul>
                 

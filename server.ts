@@ -75,16 +75,25 @@ async function startServer() {
     res.json({ status: 'ok' });
   });
 
+  // Auto-detect production mode if dist exists and NODE_ENV is not set
+  const distPath = resolve(__dirname, 'dist');
+  if (!process.env.NODE_ENV && fs.existsSync(distPath)) {
+    console.log('Dist folder found and NODE_ENV not set. Defaulting to production.');
+    process.env.NODE_ENV = 'production';
+  }
+
   // Vite middleware for development
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: { 
+        middlewareMode: true,
+        allowedHosts: ['imersao.foxpreparatorios.com.br', 'localhost', '127.0.0.1']
+      },
       appType: 'spa',
     });
     app.use(vite.middlewares);
   } else {
     // Production static file serving
-    const distPath = resolve(__dirname, 'dist');
     if (fs.existsSync(distPath)) {
       app.use(express.static(distPath));
 
@@ -148,6 +157,7 @@ async function startServer() {
 
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
   });
 }
 

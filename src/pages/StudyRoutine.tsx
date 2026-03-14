@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { Calendar, CheckCircle2, Clock, AlertCircle, ArrowRight, Brain, Target, BarChart, BookOpen, HelpCircle, ShieldCheck, Gift, Gem } from 'lucide-react';
+import { Calendar, CheckCircle2, Clock, AlertCircle, ArrowRight, Brain, Target, BarChart, BookOpen, HelpCircle, ShieldCheck, Gift, Gem, MessageCircle } from 'lucide-react';
 import { Footer } from '../components/Sections';
 
 import { trackMetaEvent, trackCompleteRegistration } from '../components/MetaPixel';
@@ -172,7 +172,15 @@ export default function StudyRoutine() {
                     <CheckCircle2 size={32} />
                   </div>
                   <h3 className="text-2xl font-bold mb-2">Inscrição Confirmada!</h3>
-                  <p className="text-gray-400">Fique atento ao seu e-mail e WhatsApp para receber o link das aulas.</p>
+                  <p className="text-gray-300 mb-6">Fique atento ao seu e-mail, mas para não perder nada, entre no nosso grupo VIP do WhatsApp.</p>
+                  <a
+                    href="https://chat.whatsapp.com/G2vK2rwAWPs21UJ9wXMLDW"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-4 px-6 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 inline-flex items-center justify-center gap-2"
+                  >
+                    <MessageCircle size={20} /> ENTRAR NO GRUPO VIP
+                  </a>
                 </div>
               )}
               </div>

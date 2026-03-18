@@ -246,22 +246,15 @@ export default function Raffle() {
               </p>
               
               <div className="h-32 flex items-center justify-center mb-8">
-                <AnimatePresence mode="wait">
-                  <motion.h2
-                    key={displayedName}
-                    initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -20, scale: 0.9 }}
-                    transition={{ duration: 0.1 }}
-                    className={`text-4xl md:text-6xl font-black text-center leading-tight ${
-                      !isDrawing && winners.length > 0 && displayedName === winners[0].name 
-                        ? 'text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400' 
-                        : 'text-white'
-                    }`}
-                  >
-                    {displayedName}
-                  </motion.h2>
-                </AnimatePresence>
+                <h2
+                  className={`text-4xl md:text-6xl font-black text-center leading-tight transition-all duration-300 ${
+                    !isDrawing && winners.length > 0 && displayedName === winners[0].name 
+                      ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] to-yellow-400 scale-110' 
+                      : 'text-white'
+                  }`}
+                >
+                  {displayedName}
+                </h2>
               </div>
 
               {!isDrawing && winners.length > 0 && displayedName === winners[0].name && (

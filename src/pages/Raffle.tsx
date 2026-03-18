@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'motion/react';
-import { Trophy, Upload, Users, Play, Gift, Trash2, Download } from 'lucide-react';
+import { Trophy, Upload, Users, Play, Gift, Trash2, Download, Lock } from 'lucide-react';
 
 interface Participant {
   name: string;
@@ -14,6 +14,10 @@ interface Winner extends Participant {
 }
 
 export default function Raffle() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [passwordInput, setPasswordInput] = useState('');
+  const [authError, setAuthError] = useState('');
+
   const [participants, setParticipants] = useState<Participant[]>([]);
   const [winners, setWinners] = useState<Winner[]>([]);
   const [isDrawing, setIsDrawing] = useState(false);
@@ -22,6 +26,64 @@ export default function Raffle() {
   const [customPrize, setCustomPrize] = useState<string>('');
   
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (passwordInput === 'Fox@2026') {
+      setIsAuthenticated(true);
+      setAuthError('');
+    } else {
+      setAuthError('Senha incorreta.');
+    }
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-[#0B1120] flex items-center justify-center p-4 font-sans">
+        <Helmet>
+          <title>Acesso Restrito | FOX IMAGEM</title>
+        </Helmet>
+        <div className="bg-[#001E33] p-8 rounded-3xl border border-white/10 max-w-md w-full shadow-2xl relative overflow-hidden">
+          <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#FF6B00] rounded-full mix-blend-multiply filter blur-[80px] opacity-20"></div>
+          
+          <div className="relative z-10">
+            <div className="w-16 h-16 bg-[#FF6B00]/10 text-[#FF6B00] rounded-full flex items-center justify-center mx-auto mb-6 border border-[#FF6B00]/20">
+              <Lock size={32} />
+            </div>
+            <h2 className="text-2xl font-bold text-white text-center mb-2">Acesso Restrito</h2>
+            <p className="text-gray-400 text-center mb-8 text-sm">Digite a senha para acessar o painel de sorteios.</p>
+            
+            <form onSubmit={handleLogin} className="space-y-5">
+              <div>
+                <input
+                  type="password"
+                  placeholder="Senha de acesso"
+                  value={passwordInput}
+                  onChange={(e) => setPasswordInput(e.target.value)}
+                  className="w-full bg-[#0B1120] border border-white/10 rounded-xl px-4 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-[#FF6B00] transition-colors text-center text-lg tracking-widest"
+                />
+              </div>
+              {authError && (
+                <motion.p 
+                  initial={{ opacity: 0, y: -10 }} 
+                  animate={{ opacity: 1, y: 0 }} 
+                  className="text-red-400 text-sm text-center font-medium"
+                >
+                  {authError}
+                </motion.p>
+              )}
+              <button
+                type="submit"
+                className="w-full bg-[#FF6B00] hover:bg-[#e66000] text-white font-bold py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1"
+              >
+                ACESSAR PAINEL
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
